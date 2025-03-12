@@ -494,4 +494,10 @@ var soundtracks = {
 
 newMusicPlayer()
 
+HistHexcolour=["#0000FF","#ff0000","#fff700"];
+HistName=["Elizabeth Warren","Donald Trump"," Jo Jorgensen"];
+HistEV=[279,259,0];
+HistPV=["78,997,797","73,555,036","2,954,642"];
+HistPVP=["50.8%","47.3%","1.9%",]; 
+
 //#endcode
