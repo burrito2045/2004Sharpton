@@ -464,7 +464,7 @@ clamp = function(a, max, min, overflow=true) {
 
 var soundtracks = {
   0: {
-    name: "2020 Warren Soundtrack",
+    name: "Yes, Virginia",
     tracklist: [
 {
         "name": "The Dresden Dolls -  Mrs. O",
@@ -474,9 +474,17 @@ var soundtracks = {
         "name": "The Dresden Dolls - Girl Anachronism",
         "url": "https://audio.jukehost.co.uk/6vVVSnKfK8QceixTzoG51RV0XQTc3dOg"
       },
+ {
+        "name": "The Dresden Dolls - Backstabber",
+        "url": "https://audio.jukehost.co.uk/E8sKLFBKfwVfaE1c2ms09dzTQ67qlbpE"
+      },
 {
-        "name": "The Dresden Dolls - Girl Anachronism",
-        "url": "https://audio.jukehost.co.uk/6vVVSnKfK8QceixTzoG51RV0XQTc3dOg"
+        "name": "The Dresden Dolls - Coin Operated Boy",
+        "url": "https://audio.jukehost.co.uk/YvwQuWa9yBqDPZNm46fQmLFNhkkAmHuw"
+      },
+{
+        "name": "The Dresden Dolls - My Alcoholic Friends",
+        "url": "https://audio.jukehost.co.uk/9GPpBDg1OCsbCp6tHvIJ9aWUcavhvYtp"
       }
     ]
   }
