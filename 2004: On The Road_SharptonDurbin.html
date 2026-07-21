@@ -8650,7 +8650,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 3311,
             "candidate": 78,
-            "answer_feedback": "The “Bureau of Missing Persons” attack fits your sharp, populist style and draws a clear contrast with Bush’s record "
+            "answer_feedback": "The “Bureau of Missing Persons” attack fits your sharp, populist style and draws a clear contrast with Bush’s record. "
         }
     },
     {
@@ -8668,7 +8668,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 3313,
             "candidate": 78,
-            "answer_feedback": "\nFraming opposition to the war as a matter of patriotism is powerful with anti-war Democrats and progressives, but it might risk sounding like you want to undermine troops already serving overseas. \n"
+            "answer_feedback": "Framing opposition to the war as a matter of patriotism is powerful with anti-war Democrats and progressives, but it might risk sounding like you want to undermine troops already serving overseas. \n"
         }
     },
     {
@@ -8812,7 +8812,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 3337,
             "candidate": 78,
-            "answer_feedback": "This is a good defense that draws a direct line to past struggles for equality. But a defense of same-sex marriage is way out of step with the public\n"
+            "answer_feedback": "This is a good defense that draws a direct line to past struggles for equality. But a defense of same-sex marriage is way out of step with the public.\n"
         }
     },
     {
@@ -9163,7 +9163,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 9709,
             "candidate": 78,
-            "answer_feedback": "This is exactly the kind of bread-and-butter issue your campaign was built around. Working-class voters appreciate the direct focus on struggling families, but Republicans will immediately paint this as another expensive government expansion "
+            "answer_feedback": "This is exactly the kind of bread-and-butter issue your campaign was built around. Working-class voters appreciate the direct focus on struggling families, but Republicans will immediately paint this as another expensive government expansion."
         }
     },
     {
@@ -9932,6 +9932,8 @@ endingPicker = (out, totv, aa, quickstats) => {
 // [JETS_ENDINGS_END]
 
 //#startcode
+campaignTrail_temp.multiple_endings = true;
+
 campaignTrail_temp.cyoa = true;
 
 // pk -> index lookup for questions
@@ -10033,6 +10035,38 @@ cyoAdventure = function (a) {
     const ans = campaignTrail_temp.player_answers[campaignTrail_temp.player_answers.length - 1];
     e.noCounter = campaignTrail_temp.player_answers.length;
 }
+
+const electionObserver = new MutationObserver((mutations, electionObserverInstance) => {
+    for (let mutation of mutations) {
+        if (mutation.type === "childList") {
+            const electionElement = document.getElementById("election_night_buttons");
+
+            if (electionElement) {
+                const electionPlaylist = new Playlist();
+
+                electionPlaylist.addSong(new Song(
+                    "Wake Up Mr. West",
+                    "Kanye West",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQEJGF_AmdqkPWyrK9B5PUSroPLF5sB6qdGp8nTRr29A&s",
+                    "https://files.catbox.moe/9rlw40.mp3"
+                ));
+
+                electionPlaylist.addSong(new Song(
+                    "Heard 'Em Say",
+                    "Kanye West",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQEJGF_AmdqkPWyrK9B5PUSroPLF5sB6qdGp8nTRr29A&s",
+                    "https://files.catbox.moe/mtlx5u.mp3"
+                ));
+
+                changePlaylist(electionPlaylist);
+
+                electionObserverInstance.disconnect();
+                break;
+            }
+        }
+    }
+});
+electionObserver.observe(document.body, { childList: true, subtree: true });
 //#endcode
 
 campaignTrail_temp.jet_data = [{
@@ -10227,34 +10261,3 @@ campaignTrail_temp.jet_data = [{
 }
 ]
 
-const electionObserver = new MutationObserver((mutations, electionObserverInstance) => {
-    for (let mutation of mutations) {
-        if (mutation.type === "childList") {
-            const electionElement = document.getElementById("election_night_buttons");
-
-            if (electionElement) {
-                const electionPlaylist = new Playlist();
-
-                electionPlaylist.addSong(new Song(
-                    "Wake Up Mr. West",
-                    "Kanye West",
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQEJGF_AmdqkPWyrK9B5PUSroPLF5sB6qdGp8nTRr29A&s",
-                    "https://files.catbox.moe/9rlw40.mp3"
-                ));
-
-                electionPlaylist.addSong(new Song(
-                    "Heard 'Em Say",
-                    "Kanye West",
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQEJGF_AmdqkPWyrK9B5PUSroPLF5sB6qdGp8nTRr29A&s",
-                    "https://files.catbox.moe/mtlx5u.mp3"
-                ));
-
-                changePlaylist(electionPlaylist);
-
-                electionObserverInstance.disconnect();
-                break;
-            }
-        }
-    }
-});
-electionObserver.observe(document.body, { childList: true, subtree: true });
